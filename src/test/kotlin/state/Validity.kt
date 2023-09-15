@@ -1,7 +1,9 @@
 package state
 
-data class Validity (
+import java.util.*
 
-    val startDate: String,
-    val endDate: String
+data class Validity(
+
+    val startDate: Date,
+    val endDate: Date
 )

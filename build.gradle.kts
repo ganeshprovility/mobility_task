@@ -34,7 +34,7 @@ dependencies {
     implementation("tech.grasshopper:extentreports-cucumber7-adapter:1.13.0")
     implementation ("com.aventstack:extentreports:5.0.9")
     implementation("io.cucumber:gherkin:26.2.0")
-
+    implementation("com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.15.2")
 }
 
 tasks.test {

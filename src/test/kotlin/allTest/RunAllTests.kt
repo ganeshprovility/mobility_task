@@ -14,7 +14,7 @@ import org.junit.runner.RunWith
 
 @RunWith(Cucumber::class)
 @CucumberOptions(features = ["Features/"], monochrome = true, glue = ["steps"], dryRun = false,
-    plugin = ["pretty","com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"])
+    plugin = ["com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"])
 class RunAllTests
 
 

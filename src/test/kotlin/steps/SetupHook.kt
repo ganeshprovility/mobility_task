@@ -1,23 +1,21 @@
 package steps
 
-import apiutil.AppInstance
 import apiutil.AuthenticationService
+import apiutil.PropertiesService
 import io.cucumber.java.BeforeAll
-import service.EventService
 import state.ScenarioData
 
-private val globalState = ScenarioData()
-private val privateAuthenticationService = AuthenticationService(globalState)
-private val privateEventService = EventService(privateAuthenticationService, globalState)
+private val state = ScenarioData()
+private val privatePropertiesService = PropertiesService()
+private val privateAuthenticationService = AuthenticationService(state, privatePropertiesService)
 
 
 @BeforeAll
 fun beforeAll() {
-    val res  = getAppInstance()
-    globalState.text = "test"
-    globalState.appInstance = res
+//    val appInstance  = privateAuthenticationService.getAppInstance()
+//    state.appInstance = appInstance
+
 }
 
-fun getAppInstance(): AppInstance = privateAuthenticationService.getAppInstance()
 
 

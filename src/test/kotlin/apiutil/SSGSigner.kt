@@ -64,7 +64,9 @@ class SSGSigner(
         val params = queryParams.sort().takeIf { it.isNotBlank() }?.let { "\n$it" } ?: ""
 
         val toSign = "${method.uppercase()}\n${path}\ncontent-sha256=$bodyHash\napi-jwt-claim=${claim}$params"
-
+        val base = Base64.getEncoder()
+        val base1 = signHmac.doFinal(toSign.toByteArray())
+        val base2 = base.encodeToString(base1)
         val signature = Base64.getEncoder().encodeToString((signHmac.doFinal(toSign.toByteArray())))
 
         return mapOf(
